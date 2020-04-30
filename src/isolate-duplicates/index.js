@@ -12,8 +12,9 @@ function isolateDuplicates(text) {
   let isolates;
   result = [];
   count = 0;
-  if (typeof text !== "string") throw "Please enter a valid string";
-  else isolates = text.replace(/(([a-zA-Z])\2)(\2+)/gi, "$1[$3]");
+  if (typeof text !== "string") throw Error("Please enter a valid string");
+
+  isolates = text.replace(/(([a-zA-Z])\2)(\2+)/gi, "$1[$3]");
 
   for (let i = 0; i < isolates.length; i++) {
     if (isolates[i] === "[" || isolates[i] === "]") {
@@ -25,5 +26,4 @@ function isolateDuplicates(text) {
   return result;
 }
 
-console.log(isolateDuplicates("aaaabbcdefffffffg"));
 module.exports = isolateDuplicates;
